@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import s from './MoviesPage.module.css';
 import { fetchSearchFilms } from '../../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
+import { Outlet } from 'react-router-dom';
 
 const MoviesPage = () => {
     const [query, setQuery] = useState('');
@@ -22,7 +23,7 @@ const MoviesPage = () => {
         const getData = async () => {
             try {
                 const data = await fetchSearchFilms(query);
-                setFilms(prev => [...prev, ...data])
+                setFilms(data)
             } catch (er) {
                 console.log(er);
             }
@@ -38,7 +39,8 @@ const MoviesPage = () => {
             <input type="text" name="query" />
            <button type='submit'>Search</button>   
           </form>
-        <MovieList data={films} />
+          <MovieList data={films} />
+          <Outlet/>
       </div>
       
   )

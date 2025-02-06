@@ -8,6 +8,10 @@ const options = {
   headers: {
     Authorization: `Bearer ${API_TOKEN}`,
     accept: "application/json"
+  },
+  params: {
+    language: "en-US",
+    page: 1,
   }
 };
 
@@ -21,11 +25,15 @@ export const fetchSearchFilms = async (query) => {
     const { data } = await axios.get(urlSearch, {
         ...options,
         params: {
-            language: "en-US",
-            page: 1,
-            query: `${query}`,
+          ...options.params,
+          query,
         }
 
     });
     return data.results;
 };
+
+export const fetchFilmById = async (movieId) => {
+  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, options);
+  return data;
+}
