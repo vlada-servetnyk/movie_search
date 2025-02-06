@@ -1,0 +1,10 @@
+.movies_wrapper {
+    text-align: start;
+    padding: 10px 20px;
+}
+
+.form {
+    padding: 10px 0px;
+    display: flex;
+    gap: 10px;
+}

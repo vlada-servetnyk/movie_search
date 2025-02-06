@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import fetchTrending from '../../../services/api'
+
+import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import s from './HomePage.module.css';
+import { fetchTrending } from '../../../services/api';
 
 
 const HomePage = () => {
@@ -10,7 +11,7 @@ const HomePage = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const data = await fetchTrending();
+                const data = await fetchTrending();  
                 return setTrend(prev => [...prev, ...data]);
                 
             } catch (er) {
