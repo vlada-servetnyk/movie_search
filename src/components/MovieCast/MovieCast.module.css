@@ -1,0 +1,15 @@
+.actors_wrapper {
+    text-align: start;
+    padding: 10px 20px;
+    color: black;
+}
+
+.actors_list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.actor {
+    margin: 0;
+    font-weight: bold;
+}

@@ -1,6 +1,6 @@
 import s from './MovieDetailsPage.module.css';
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { fetchFilmById } from "../../../services/api";
 import clsx from 'clsx';
 
@@ -27,7 +27,6 @@ const MovieDetailsPage = () => {
 
   if (!film) return <h2>Loading...</h2>;
   
-  console.log(film);
   
   const img = 'https://image.tmdb.org/t/p/w500/';
   const { title, overview, genres, vote_average, poster_path } = film;
@@ -51,8 +50,8 @@ const MovieDetailsPage = () => {
       <div className={s.info_wrapper}>
         <h3>Additional information</h3>
         <ul className={s.list_nav}>
-          <li><NavLink className={buildLinkClass} to='cast'>Cast</NavLink></li>
-          <li><NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink></li>
+          <li key="cast"><NavLink className={buildLinkClass} to='cast'>Cast</NavLink></li>
+          <li key="reviews"><NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink></li>
           </ul>
       </div>
        <Outlet/>
