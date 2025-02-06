@@ -1,0 +1,16 @@
+.link {
+    color: black;
+    font-size: 22px;
+}
+
+.active {
+    color: red;
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,10 @@
+.home_wrapper {
+    text-align: start;
+    padding: 10px 20px;
+}
+
+.home_title {
+    color: black;
+    font-size: 22px;
+    margin: 0;
+}
