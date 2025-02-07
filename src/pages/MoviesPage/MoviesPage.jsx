@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import s from './MoviesPage.module.css';
 import { fetchSearchFilms } from '../../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
     const [query, setQuery] = useState('');
     const [films, setFilms] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +16,8 @@ const MoviesPage = () => {
         const searchQuery = form.query.value.trim();
         if (searchQuery === '') return;
         setQuery(searchQuery);
+        searchParams.set('query', searchQuery);
+        setSearchParams(searchParams);
         form.reset();
     };
     

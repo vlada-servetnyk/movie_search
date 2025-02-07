@@ -1,9 +1,16 @@
 .film_wrapper {
     padding: 10px 20px;
     display: flex;
+    flex-direction: column;
+    align-items: start;
     gap: 10px;
     color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.img_wrapper {
+    display: flex;
+    gap: 10px;
 }
 
 .description {
@@ -33,4 +40,12 @@
 
 .active {
     color: red;
+}
+
+.goback {
+    color: black;
+}
+
+.goback:hover, .goback:focus {
+    color: black;
 }

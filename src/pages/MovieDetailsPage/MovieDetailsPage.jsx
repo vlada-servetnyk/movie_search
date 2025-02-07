@@ -1,6 +1,6 @@
 import s from './MovieDetailsPage.module.css';
-import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchFilmById } from "../../../services/api";
 import clsx from 'clsx';
 
@@ -11,7 +11,10 @@ const buildLinkClass = ({ isActive }) => {
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState(null);
-
+  const location = useLocation();
+  const goBackUrl = useRef(location.state);
+  
+  
   useEffect(() => {
     
     const getData = async () => {
@@ -35,8 +38,10 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <div className={s.film_wrapper}>
-        <img src={img + poster_path} alt={title} width='300' />
-        <div className={s.description}>
+        <button ><Link className={s.goback} to={goBackUrl.current}>Go back</Link></button>
+        <div className={s.img_wrapper}>
+          <img src={img + poster_path} alt={title} width='300' />
+          <div className={s.description}>
           <h2>{title}</h2>
           <p>User score: {vote_average}</p>
           <h3>Overviews</h3>
@@ -45,6 +50,7 @@ const MovieDetailsPage = () => {
           <span className={s.genres}>
             {genres.map(item => <p>{item.name}</p>)}
           </span>
+          </div>
         </div>
       </div>
       <div className={s.info_wrapper}>
