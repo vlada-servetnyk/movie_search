@@ -5,9 +5,10 @@ import MovieList from '../../components/MovieList/MovieList';
 import { Outlet, useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-    const [query, setQuery] = useState('');
+    // const [query, setQuery] = useState('');
     const [films, setFilms] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('query') || '';
 
 
     const onSubmit = (e) => {
@@ -15,14 +16,18 @@ const MoviesPage = () => {
         const form = e.target;
         const searchQuery = form.query.value.trim();
         if (searchQuery === '') return;
-        setQuery(searchQuery);
+
+        // setQuery(searchQuery);
         searchParams.set('query', searchQuery);
         setSearchParams(searchParams);
         form.reset();
     };
     
     useEffect(() => {
-        if (!query) return;
+        if (!query) {
+            setFilms([]);
+            return
+        };
 
         const getData = async () => {
             try {
