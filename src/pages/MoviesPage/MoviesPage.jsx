@@ -5,7 +5,7 @@ import MovieList from '../../components/MovieList/MovieList';
 import { Outlet, useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-    // const [query, setQuery] = useState('');
+
     const [films, setFilms] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('query') || '';
@@ -17,7 +17,6 @@ const MoviesPage = () => {
         const searchQuery = form.query.value.trim();
         if (searchQuery === '') return;
 
-        // setQuery(searchQuery);
         searchParams.set('query', searchQuery);
         setSearchParams(searchParams);
         form.reset();
@@ -45,8 +44,8 @@ const MoviesPage = () => {
   return (
     <div className={s.movies_wrapper}>
         <form className={s.form} onSubmit={onSubmit}>
-            <input type="text" name="query" />
-           <button type='submit'>Search</button>   
+            <input className={s.search} type="text" name="query" />
+           <button className={s.btn_search} type='submit'>Search</button>   
           </form>
           <MovieList data={films} />
           <Outlet/>

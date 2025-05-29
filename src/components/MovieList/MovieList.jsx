@@ -9,7 +9,7 @@ const MovieList = ({ data }) => {
   return (
     <ul className={s.trend_list}>
           {data.map((item, index) => (
-                <li key={`${item.id} - ${index}`}>
+                <li className={s.trend_item} key={`${item.id} - ${index}`}>
                   <Link  className={s.trend_link} state={location} to={`/movies/${item.id}`}>{item.title}</Link>
                 </li>
       ))}

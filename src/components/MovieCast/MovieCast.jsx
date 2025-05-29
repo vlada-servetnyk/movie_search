@@ -29,10 +29,10 @@ const MovieCast = () => {
     <div className={s.actors_wrapper}>
           <ul className={s.actors_list}>
               {cast.map(({ name, id, character, profile_path }) => (
-                  <li key={id}>
+                  <li className={s.actors_list_item} key={id}>
                       <img src={img + profile_path} alt={name} width='100' />
-                      <p className={s.actor}>{name}</p>
-                      <p className={s.actor}>{character}</p>
+                      <p className={s.actor_name}>{name}</p>
+                      <p className={s.actor_character}>{character}</p>
                   </li>
            ))}   
         </ul>

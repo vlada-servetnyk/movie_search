@@ -36,11 +36,11 @@ const MovieDetailsPage = () => {
   
 
   return (
-    <div>
+    <div className={s.film_page}>
       <div className={s.film_wrapper}>
-        <button ><Link className={s.goback} to={goBackUrl.current}>Go back</Link></button>
+        <button className={s.btn_goback} ><Link className={s.goback} to={goBackUrl.current}>Go back</Link></button>
         <div className={s.img_wrapper}>
-          <img src={img + poster_path} alt={title} width='300' />
+          <img src={img + poster_path} alt={title} width='200' />
           <div className={s.description}>
           <h2>{title}</h2>
           <p>User score: {vote_average}</p>
@@ -54,7 +54,7 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <div className={s.info_wrapper}>
-        <h3>Additional information</h3>
+        <h3 className={s.info}>Additional information</h3>
         <ul className={s.list_nav}>
           <li key="cast"><NavLink className={buildLinkClass} to='cast'>Cast</NavLink></li>
           <li key="reviews"><NavLink className={buildLinkClass} to='reviews'>Reviews</NavLink></li>

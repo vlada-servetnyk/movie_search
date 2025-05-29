@@ -3,3 +3,50 @@
     padding: 10px 20px;
     color: black;
 }
+
+.reviews_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reviews_item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews_title {
+    color: #333333;
+}
+
+.reviews_content {
+    color: #333333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-height 300ms linear; 
+}
+
+.show_more {
+    color: #ff5b5b;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: color 300ms linear;
+}
+
+.show_more:hover {
+    color: rgb(135, 128, 230);
+}
+
+.show_full {
+    -webkit-line-clamp: unset;
+    max-height: none;
+
+}
+
